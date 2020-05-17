@@ -1,0 +1,16 @@
+---
+## Adds the needed lines in the crontab file
+
+- name: Add cron for checker
+  cron:
+    name: checker
+    minute: "*/15"
+    job: "sh /root/wordpress/checker.sh >> /var/log/cron.log"
+
+- name: Add cron for certificates
+  cron:
+    name: checker
+    minute: "0"
+    hour: "4"
+    weekday: "Thu,Mon"
+    job: "/root/wordpress/cert_renewal.sh "

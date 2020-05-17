@@ -1,0 +1,6 @@
+---
+# This Playbook starts all containers needed for the wordpress application using the docker-compose.yml
+
+- name: Starts the containers
+  docker_compose:
+    project_src: /root/wordpress

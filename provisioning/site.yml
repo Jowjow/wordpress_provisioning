@@ -1,0 +1,8 @@
+---
+
+- name: Configuring dependencies on host
+  hosts: gig_test
+  remote_user: ubuntu # Remote user
+  become: yes
+  roles:
+    - setup
