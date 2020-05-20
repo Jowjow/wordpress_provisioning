@@ -13,3 +13,9 @@
   copy:
     src: jenkins.service
     dest: /etc/systemd/system
+
+- name: Copy pipeline script to jenkins folder
+  copy:
+    src: pipeline.sh
+    dest: /root/jenkins
+    mode: 0777

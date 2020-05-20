@@ -14,5 +14,6 @@
         - "50000:50000"
     volumes:
         - "/root/jenkins:/var/jenkins_home"
+        - "/var/log/:/var/host_log"
     state: started
     recreate: no
