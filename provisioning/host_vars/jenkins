@@ -1,0 +1,4 @@
+---
+# The variables in here are needed on the gig machine
+
+ansible_python_interpreter: /usr/bin/python3

@@ -5,7 +5,7 @@
   cron:
     name: checker
     minute: "*/15"
-    job: "sh /root/wordpress/checker.sh >> /var/log/cron.log"
+    job: "/root/wordpress/checker.sh >> /tmp/checker.log 2>&1"
 
 - name: Add cron for certificates
   cron:
@@ -13,4 +13,4 @@
     minute: "0"
     hour: "4"
     weekday: "Thu,Mon"
-    job: "/root/wordpress/cert_renewal.sh "
+    job: "/root/wordpress/cert_renewal.sh"

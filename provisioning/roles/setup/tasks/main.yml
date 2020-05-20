@@ -1,23 +1,16 @@
 ---
+# This is the main playbook with the whole flow for the wordpress website deploy with the needed configuration
 
 - name: Update apt packages
   apt:
     update_cache: yes
-  tags:
-    - system
 
-- name: Setup docker
-  include_tasks: install_docker.yml
+- name: Transfer Files
+  include_tasks: files.yml
 
-- name: Setup files
-  include_taks: transfer_files.yml
+- name: Start container
+  include_tasks: start_containers.yml
 
-- name: Edit Cron File
-  include_task: crontab.yml
-
-# sudo apt-get autoremove
 - name: Remove dependencies that are no longer required
   apt:
     autoremove: yes
-  tags:
-    - system

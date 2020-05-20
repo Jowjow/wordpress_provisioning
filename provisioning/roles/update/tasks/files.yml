@@ -1,0 +1,43 @@
+---
+# Manages transference of configuration files to remote host
+
+- name: Delete nginx-conf directory
+  file:
+    path: /root/wordpress/
+    state: absent
+
+- name: Copy compose file
+  copy:
+    src: docker-compose.yml
+    dest: /root/wordpress
+    owner: root
+    group: docker
+
+- name: Copy nginx configuration folder
+  copy:
+    src: nginx-conf
+    dest: /root/wordpress/nginx-conf
+    owner: root
+    group: docker
+
+- name: Copy checker script
+  copy:
+    src: checker.sh
+    dest: /root/wordpress
+    owner: root
+    group: docker
+
+- name: Copy cert renewal script
+  copy:
+    src: cert_renewal.sh
+    dest: /root/wordpress
+    owner: root
+    group: docker
+    mode: 754
+
+- name: Copy env variables file
+  copy:
+    src: .env
+    dest: /root/wordpress
+    owner: root
+    group: docker

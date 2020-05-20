@@ -5,4 +5,4 @@
   remote_user: ubuntu # Remote user
   become: yes
   roles:
-    - setup
+    - update

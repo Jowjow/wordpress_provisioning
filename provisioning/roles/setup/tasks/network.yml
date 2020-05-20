@@ -1,0 +1,35 @@
+---
+# Manages network connection for the remote host
+
+- name: Allow new incoming connections on TCP port 80 (HTTP).
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: 80
+    ctstate: NEW
+    syn: match
+    jump: ACCEPT
+
+- name: Allow new incoming connections on TCP port 443 (HTTPS).
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: 443
+    ctstate: NEW
+    syn: match
+    jump: ACCEPT
+
+- ufw:
+    rule: allow
+    port: ssh
+    proto: tcp
+
+- ufw:
+    rule: allow
+    port: http
+    proto: tcp
+
+- ufw:
+    rule: allow
+    port: https
+    proto: tcp

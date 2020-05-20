@@ -1,0 +1,17 @@
+---
+# This Playbook restarts the needed containers for https update
+
+- name: Restart certbot container for certificate creation
+  docker_service:
+    project_src: /root/wordpress
+    dependencies: no
+    recreate: always
+    services: certbot
+
+- name: Restart webserver container
+  docker_service:
+    project_src: /root/wordpress
+    dependencies: no
+    recreate: always
+    services: certbot
+

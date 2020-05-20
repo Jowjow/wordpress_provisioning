@@ -1,0 +1,37 @@
+---
+# Manages transference of configuration files to remote host
+
+- name: Create wordpress project directory
+  file:
+    path: /root/wordpress
+    state: directory
+    owner: root
+    group: docker
+
+- name: Copy nginx configuration folder
+  copy:
+    src: nginx-conf
+    dest: /root/wordpress/
+    owner: root
+    group: docker
+
+- name: Copy compose file
+  copy:
+    src: docker-compose.yml
+    dest: /root/wordpress
+    owner: root
+    group: docker
+
+- name: Copy version file
+  copy:
+    src: version.txt
+    dest: /root/wordpress
+    owner: root
+    group: docker
+
+- name: Copy env variables file
+  copy:
+    src: .env
+    dest: /root/wordpress
+    owner: root
+    group: docker
