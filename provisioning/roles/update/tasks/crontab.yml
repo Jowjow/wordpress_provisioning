@@ -9,7 +9,7 @@
 
 - name: Add cron for certificates
   cron:
-    name: checker
+    name: renewal
     minute: "0"
     hour: "4"
     weekday: "Thu,Mon"

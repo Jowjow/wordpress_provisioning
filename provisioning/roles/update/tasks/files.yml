@@ -3,7 +3,7 @@
 
 - name: Delete nginx-conf directory
   file:
-    path: /root/wordpress/
+    path: /root/wordpress/nginx-conf
     state: absent
 
 - name: Copy compose file
@@ -16,7 +16,7 @@
 - name: Copy nginx configuration folder
   copy:
     src: nginx-conf
-    dest: /root/wordpress/nginx-conf
+    dest: /root/wordpress/
     owner: root
     group: docker
 
@@ -34,10 +34,3 @@
     owner: root
     group: docker
     mode: 754
-
-- name: Copy env variables file
-  copy:
-    src: .env
-    dest: /root/wordpress
-    owner: root
-    group: docker

@@ -1,0 +1,8 @@
+---
+
+- name: Configuring CICD service on host
+  hosts: jenkins
+  remote_user: ubuntu # Remote user
+  become: yes
+  roles:
+    - jenkins

@@ -1,15 +1,11 @@
 ---
 # This is the main playbook with the whole flow for the wordpress website update to HTTPS
 
-- name: Update apt packages
-  apt:
-    update_cache: yes
-
 - name: Transfer Files
   include_tasks: files.yml
 
 - name: Restart needed containers
-  include_task: restart_containers.yml
+  include_tasks: restart_containers.yml
 
 - name: Edit Cron File
   include_tasks: crontab.yml

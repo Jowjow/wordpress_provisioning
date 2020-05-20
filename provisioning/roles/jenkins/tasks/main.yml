@@ -1,0 +1,15 @@
+---
+# This is the main playbook with the whole flow for the wordpress website update to HTTPS
+
+- name: Update apt packages
+  apt:
+    update_cache: yes
+
+- name: Install dependencies
+  include_tasks: dependencies.yml
+
+- name: Manage Files
+  include_tasks: files.yml
+
+- name: Start Container
+  include_tasks: start_container.yml

@@ -1,0 +1,15 @@
+---
+# Creates necessary folders and transfers necessary files
+
+- name: Ensure jenkins directory on docker host
+  file:
+    path: /root/jenkins
+    state: directory
+    owner: root
+    group: docker
+    mode: 0777
+
+- name: Copy systemd service script to start and stop the jenkins container
+  copy:
+    src: jenkins.service
+    dest: /etc/systemd/system

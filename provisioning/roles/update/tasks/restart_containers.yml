@@ -13,5 +13,5 @@
     project_src: /root/wordpress
     dependencies: no
     recreate: always
-    services: certbot
+    services: webserver
 

@@ -1,8 +1,11 @@
 ---
+# Author: André Machado de Araújo
+# Main playbook for whole creation of wordpress stack on a remote ubuntu host
 
-- name: Configuring dependencies on host
+- name: Setting up https wordpress site on host
   hosts: gig_test
   remote_user: ubuntu # Remote user
   become: yes
   roles:
+    - setup
     - update

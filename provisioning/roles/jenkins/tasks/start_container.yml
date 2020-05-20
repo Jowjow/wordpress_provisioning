@@ -1,0 +1,18 @@
+---
+# This Playbook downloads and starts the jenkins container
+
+- name: Pull the latest jenkins image
+  docker_image:
+    name: "jenkins/jenkins:latest"
+
+- name: Create a container for jenkins
+  docker_container:
+    name: "jenkins-server"
+    image: "jenkins/jenkins"
+    ports:
+        - "8080:8080"
+        - "50000:50000"
+    volumes:
+        - "/root/jenkins:/var/jenkins_home"
+    state: started
+    recreate: no
