@@ -28,6 +28,7 @@
     dest: /root/wordpress
     owner: root
     group: docker
+    mode: 0777
 
 - name: Copy env variables file
   copy:

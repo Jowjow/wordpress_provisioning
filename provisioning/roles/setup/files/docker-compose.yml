@@ -28,6 +28,7 @@ services:
       - WORDPRESS_DB_NAME=wordpress
     volumes:
       - wordpress:/var/www/html
+      - ./version.txt:/var/www/html/version.txt
     networks:
       - app-network
 
