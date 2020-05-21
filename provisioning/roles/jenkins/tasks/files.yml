@@ -9,11 +9,6 @@
     group: docker
     mode: 0777
 
-- name: Copy systemd service script to start and stop the jenkins container
-  copy:
-    src: jenkins.service
-    dest: /etc/systemd/system
-
 - name: Copy pipeline script to jenkins folder
   copy:
     src: pipeline.sh

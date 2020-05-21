@@ -26,6 +26,7 @@
     dest: /root/wordpress
     owner: root
     group: docker
+    mode: 754
 
 - name: Copy cert renewal script
   copy:
