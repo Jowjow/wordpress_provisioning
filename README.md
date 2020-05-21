@@ -32,5 +32,7 @@ An Ansible approach based on roles was designed because it isolates different co
   
   PS: The `site.yml` playbook runs both the setup and update roles' tasks. 
   
-For more information take a dive into the code. 
+Also, a Jenkins job(on the known Jenkins instance) is ran everytime a push is made to this repository's master branch. 
+  
+For more information take a dive into the code or reach out for any questions. 
   
